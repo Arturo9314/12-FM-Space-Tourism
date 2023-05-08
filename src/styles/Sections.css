@@ -1,0 +1,29 @@
+.sections-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    min-height: calc(100vh - 96px);
+    width: 100%;
+}
+#sections-header{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 30px;
+    padding-left: 100px;
+}
+.heading5.bold {
+    color: var(--white);
+    opacity: 0.25;
+    font-weight: bold;
+}
+#sections-header > h2{
+    color: var(--white);
+}
+
+#title{
+    display: block;
+    white-space: nowrap;
+    border-right: 4px solid;
+    overflow: hidden;
+}

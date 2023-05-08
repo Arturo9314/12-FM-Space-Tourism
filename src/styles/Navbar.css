@@ -1,0 +1,157 @@
+#main-navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 96px;
+    margin-top: 40px;
+}
+
+#logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    left: 0;
+}
+
+#logo svg{
+    margin: 0 55px;
+}
+#line{
+    height: 1px;
+    width: calc(100vw - 957px );
+    position: absolute;
+    left: 158px;
+    background-color: rgba(255, 255, 255, 0.25);
+    z-index: 1;
+}
+
+#menu{
+    display: none;
+}
+
+#navbar-buttons-container > ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    list-style: none;
+    width: 830px;
+    height: 94px;
+    caret-color: transparent;
+    background-color: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(40.7742px);
+    
+}
+
+.main-btn{
+    background: transparent;
+    border: none;
+    color: var(--white);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.main-btn:hover{
+    border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+.main-btn:active, .active-section{
+    border-bottom: 3px solid var(--white);
+}
+
+#destination-navbar > ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 285.5px;
+    height: 34px;
+    gap: 20px;
+    caret-color: transparent;
+}
+
+.destination-btn{
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding-bottom: 12px;
+}
+
+.destination-btn:hover{
+    border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+.destination-btn:active, .active-destination{
+    border-bottom: 3px solid var(--white);
+}
+#crew-details{
+    position: relative;
+}
+#crew-navbar{
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+}
+
+#crew-navbar > ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 132px;
+    height: 15px;
+    list-style: none;
+    caret-color: transparent;
+}
+
+.crew-btn{
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.17);
+    border-radius: 50%;
+}
+.crew-btn:hover{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.crew-btn:active, .active-crew{
+    background-color: var(--white);
+}
+
+#tech-navbar > ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 80px;
+    height: 303px;
+    list-style: none;
+    caret-color: transparent;
+}
+
+.tech-btn{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    color: var(--white);
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    cursor: pointer;
+}
+
+.tech-btn:hover{
+    border-color: var(--white);
+}
+
+.tech-btn:active, .active-tech{
+    border-color: var(--white);
+    background-color: var(--white);
+    color: var(--black);
+}
