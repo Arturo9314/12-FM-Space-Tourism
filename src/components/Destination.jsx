@@ -4,14 +4,17 @@ import '../styles/Destination.css'
 import { destinations } from '../data/getData'
 import { useBodyData } from '../App'
 import { Navigate, useParams } from 'react-router-dom'
+import moon from '../assets/destination/image-moon.webp'
+import mars from '../assets/destination/image-mars.webp'
+import europa from '../assets/destination/image-europa.webp'
+import titan from '../assets/destination/image-titan.webp'
 
 export default function Destination() {
   const {name} = useParams()
   const {body, bgBody} = useBodyData('destination')
   const index = destinations.findIndex((e)=>(e.name.toLowerCase()===name.toLowerCase()))
-  const { images, name: placeName, description, distance, travel} = index<0 ? {} :destinations[index]
-  const placeImg = index<0? '': `src/${images.webp.slice(2)}`
-
+  const { name: placeName, description, distance, travel} = index<0 ? {} :destinations[index]
+  
   useEffect(()=>{
     body.style.backgroundImage = `url(${bgBody})`
     const timeoutId = setTimeout(()=>{
@@ -36,7 +39,7 @@ export default function Destination() {
     <article className='destination-container'>{
       index<0? <Navigate to='/explore'/> : 
       <>
-      <DestinationImg placeImg={placeImg} placeName={placeName}/>
+      <DestinationImg placeName={placeName}/>
       <aside id='destination-details'>
           <DestinationNavbar/>
           <DestinationInfo placeName={placeName} description={description} distance={distance} travel={travel}/>
@@ -69,8 +72,8 @@ function DestinationInfo({placeName, description, distance, travel}) {
   )
 }
 
-function DestinationImg({placeImg, placeName}){
-  
+function DestinationImg({placeName}){
+  const placeImg = placeName === 'Moon' ? moon : placeName === 'Mars' ? mars : placeName === 'Europa' ? europa : titan
   return (
     <figure id='destination-img'>
       <img src={placeImg} alt={`Witout description of ${placeName}`}/>

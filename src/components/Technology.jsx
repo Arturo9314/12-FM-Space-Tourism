@@ -4,15 +4,18 @@ import '../styles/Technology.css'
 import { Navigate, useParams } from 'react-router-dom'
 import { tech } from '../data/getData'
 import { useBodyData } from '../App'
-
+import launchVehicleP from '../assets/technology/image-launch-vehicle-portrait.jpg'
+import launchVehicleL from '../assets/technology/image-launch-vehicle-landscape.jpg'
+import spaceportP from '../assets/technology/image-spaceport-portrait.jpg'
+import spaceportL from '../assets/technology/image-spaceport-landscape.jpg'
+import spaceCapsuleP from '../assets/technology/image-space-capsule-portrait.jpg'
+import spaceCapsuleL from '../assets/technology/image-space-capsule-landscape.jpg'
 export default function Technology() {
     
   const {techName}=useParams()
   const {body, bgBody, viewportWidth} = useBodyData('technology')  
   const index = tech.findIndex((e)=>(e.name.toLowerCase()===techName.replace(/_/g, " ")))
-  const {name, images, description}= index<0?{}: tech[index]
-  const techImg = index<0?'': `src/${viewportWidth>768?images.portrait.slice(2):images.landscape.slice(2)}`
-  
+  const {name, description}= index<0?{}: tech[index]
 
   useEffect(()=>{
     body.style.backgroundImage = `url(${bgBody})` 
@@ -29,7 +32,7 @@ export default function Technology() {
           <TechnologyInfo name={name} description={description}/>
         </div>
       </aside>
-      <TechnologyImg techImg={techImg} description={description}/>
+      <TechnologyImg viewportWidth={viewportWidth} name={name} description={description}/>
       </>
       }
     </article>
@@ -50,7 +53,17 @@ function TechnologyInfo({name, description}) {
 }
 
 
-function TechnologyImg({techImg, description}) {
+function TechnologyImg({viewportWidth, name, description}) {
+  const techImg = viewportWidth<768 ?
+      name === 'Launch vehicle' ?
+        launchVehicleL :
+      name === 'Spaceport'?
+        spaceportL : spaceCapsuleL
+    : name === 'Launch vehicle' ?
+        launchVehicleP :
+      name === 'Spaceport'?
+        spaceportP : spaceCapsuleP
+
   return (
     <figure id='tech-img'>
         <img src={techImg} alt={description}></img>
