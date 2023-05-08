@@ -11,7 +11,7 @@ export default function Technology() {
   const {body, bgBody, viewportWidth} = useBodyData('technology')  
   const index = tech.findIndex((e)=>(e.name.toLowerCase()===techName.replace(/_/g, " ")))
   const {name, images, description}= index<0?{}: tech[index]
-  const techImg = index<0?'': `/src/${viewportWidth>768?images.portrait.slice(2):images.landscape.slice(2)}`
+  const techImg = index<0?'': `src/${viewportWidth>768?images.portrait.slice(2):images.landscape.slice(2)}`
   
 
   useEffect(()=>{

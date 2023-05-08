@@ -10,7 +10,7 @@ export default function Destination() {
   const {body, bgBody} = useBodyData('destination')
   const index = destinations.findIndex((e)=>(e.name.toLowerCase()===name.toLowerCase()))
   const { images, name: placeName, description, distance, travel} = index<0 ? {} :destinations[index]
-  const placeImg = index<0? '': `/src/${images.webp.slice(2)}`
+  const placeImg = index<0? '': `src/${images.webp.slice(2)}`
 
   useEffect(()=>{
     body.style.backgroundImage = `url(${bgBody})`

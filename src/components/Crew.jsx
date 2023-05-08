@@ -11,7 +11,7 @@ export default function Crew() {
   const {body, bgBody} = useBodyData('crew')
   const index = crew.findIndex((e)=>(e.role.toLowerCase()===role.replace(/_/g, " ")))
   const { name, role : roleMember, bio, images } = index<0? {} : crew[index]
-  const memberImg = index<0? '': `/src/${images.webp.slice(2)}`
+  const memberImg = index<0? '': `src/${images.webp.slice(2)}`
 
   useEffect(()=>{
     body.style.backgroundImage = `url(${bgBody})`

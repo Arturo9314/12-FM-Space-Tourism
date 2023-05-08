@@ -11,7 +11,7 @@ export function useBodyData(location){
   const body = document.querySelector('body');
   const viewportWidth = window.innerWidth;
   const vw = viewportWidth <=375 ? 'mobile' :  viewportWidth <= 768 ? 'tablet' : 'desktop'
-  const bgBody = `/src/assets/${location}/background-${location}-${vw}.jpg`
+  const bgBody = `src/assets/${location}/background-${location}-${vw}.jpg`
   return {body, bgBody, viewportWidth}
 }
 
